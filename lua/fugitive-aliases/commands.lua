@@ -39,6 +39,10 @@ function M.setup(config)
 	if config.gs then
 		M.register("Gs", "Git status", "Git status")
 	end
+
+	if config.gp then
+		M.register("Gp", "Git push", "Git push")
+	end
 end
 
 return M

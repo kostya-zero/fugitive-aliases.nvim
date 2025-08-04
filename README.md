@@ -65,6 +65,7 @@ require("fugitive-aliases").setup({
     gc = true,
     gl = true,
     gb = true,
+    gp = true,
 })
 ```
 
@@ -96,6 +97,7 @@ is equivalent to:
 | `Gc` | `Git commit` | Open the commit pane. |
 | `Gl` | `Git log` | Open the Git log. |
 | `Gb` | `Git blame`| Open Git blame for the current file. |
+| `Gp` | `Git push` | Pushes changes to remote. |
 
 ## Contributing
 
