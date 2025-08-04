@@ -4,6 +4,8 @@ A NeoVim plugin that adds aliases to [vim-fugitive](https://github.com/tpope/vim
 
 ## Installation
 
+Chose your favorite plugins manager.
+
 <details>
     <summary>lazy.nvim</summary>
 
@@ -12,7 +14,7 @@ A NeoVim plugin that adds aliases to [vim-fugitive](https://github.com/tpope/vim
     "kostya-zero/fugitive-aliases.nvim",
     ---@module "fugitive-aliases"
     ---@type fugitive-aliases.Config
-    opts = {}
+    opts = {}, -- See Configuration section
     dependencies = {
         "tpope/vim-fugitive"
     },
@@ -36,56 +38,67 @@ use({
 
 </details>
 
-## Getting started
+## Setup & Configuration
 
-#### Load plugin
+The plugin is enabled by default when you call the `setup()` function.
+If you're using `lazy.nvim` with the `opts` table, this is handled for you automatically.
 
-If you are using `lazy.nvim` or `packer` to install this plugin
-with the examples above, the plugin will be loaded automatically.
-
-If not, install it your way first, and then put this somewhere in your configuration:
-
-```lua
-require("fugitive-aliases").setup()
-```
-
-#### Configuration
-
-This plugin creates aliases for `vim-fugitive` as commands, for example `Ga` command will be an alias to `Git add`.
-You can configure this behavior by disabling aliases in configuration that you dont want to enable.
+To configure the plugin, pass a table to the `setup()` function.
+You can disable any alias by setting its key to `false`.
+By default, all aliases are enabled.
 
 ```lua
+-- Example: Disable the "Ga" and "Gb" aliases
 require("fugitive-aliases").setup({
-    -- Disable "Ga" alias
-    ga = false
+  ga = false, -- Disables :Ga
+  gb = false, -- Disables :Gb
 })
 ```
 
-By default, all aliases are enabled.
+## Default Configuration
 
-#### Passing arguments
+```lua
+require("fugitive-aliases").setup({
+    gs = true,
+    ga = true,
+    gaa = true,
+    gc = true,
+    gl = true,
+    gb = true,
+})
+```
 
-When using these aliases you still can pass your arguments to the command. For example:
+## Usage
+
+Use the aliases just like you would the full vim-fugitive commands. You can pass arguments to them as usual.
+
+### Example
+
+This command:
 
 ```vim
 :Ga LICENSE README.md
+```
 
-" Will be equivalent to:
+is equivalent to:
 
+```vim
 :Git add LICENSE README.md
 ```
 
 ## Available aliases
 
-| Alias | Command |
-| ----- | ------- |
-| `Gs`  | `Git status` |
-| `Ga`  | `Git add`  |
-| `Gaa` | `Git add .` |
-| `Gc` | `Git commit` |
-| `Gl` | `Git log` |
-| `Gb` | `Git blame`|
+| Alias | Fugitive Command | Description |
+| ----- | ------- | ----------- |
+| `Gs`  | `Git status` | Open the Git status pane. |
+| `Ga`  | `Git add`  | Stage a file. Accepts arguments. |
+| `Gaa` | `Git add .` | Stage all changes in the current directory. |
+| `Gc` | `Git commit` | Open the commit pane. |
+| `Gl` | `Git log` | Open the Git log. |
+| `Gb` | `Git blame`| Open Git blame for the current file. |
 
 ## Contributing
 
-Make a pull request...
+Contributions are welcome!
+Feel free to open an issue to suggest a feature or report a bug.
+If you want to contribute code, please open a pull request.
