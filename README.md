@@ -38,10 +38,10 @@ use({
 
 ## Getting started
 
-If you are using `lazy.nvim`or `packer` to install this plugin
+If you are using `lazy.nvim` or `packer` to install this plugin
 with examples above, plugin will be loaded already.
 
-If not, put this command anywhere in your NeoVim configuration:
+If not, install it your way, and then put this somewhere in your configuration:
 
 ```lua
 require("fugitive-aliases").setup()
