@@ -4,7 +4,7 @@ A NeoVim plugin that adds aliases to [vim-fugitive](https://github.com/tpope/vim
 
 ## Installation
 
-Chose your favorite plugins manager.
+Choose your favorite plugins manager.
 
 <details>
     <summary>lazy.nvim</summary>
@@ -30,10 +30,71 @@ Chose your favorite plugins manager.
 ```lua
 use({
     "kostya-zero/fugitive-aliases.nvim",
+    requires = { "tpope/vim-fugitive" },
     config = function()
         require("fugitive-aliases").setup()
     end
 })
+```
+
+</details>
+
+<details>
+    <summary>vim-plug</summary>
+
+```vim
+call plug#begin()
+
+" ....
+
+Plug 'tpope/vim-fugitive'
+Plug 'kostya-zero/fugitive-aliases.nvim'
+
+" ....
+
+call plug#end()
+
+" Call setup function after plugins are loaded
+lua << EOF
+require("fugitive-aliases").setup()
+EOF
+```
+
+</details>
+
+<details>
+    <summary>dein.vim</summary>
+
+Insert into your dein.vim configuration:
+
+```vim
+call dein#add('tpope/vim-fugitive')
+call dein#add('kostya-zero/fugitive-aliases.nvim', {
+\   'depends': 'vim-fugitive',
+\   'hook_add': 'lua require("fugitive-aliases").setup()'
+\ })
+```
+
+</details>
+
+<details>
+    <summary>Native Packages</summary>
+
+1. Clone the repositories into your pack directory (adjust path as needed). This will make them load on startup.
+
+```bash
+# For Linux/macOS
+PACK_PATH="$HOME/.local/share/nvim/site/pack/plugins/start"
+
+git clone https://github.com/tpope/vim-fugitive.git "$PACK_PATH/vim-fugitive"
+git clone https://github.com/kostya-zero/fugitive-aliases.nvim.git "$PACK_PATH/fugitive-aliases.nvim"
+```
+
+2. Add the setup call to your init.lua:
+
+```lua
+-- in your init.lua
+require("fugitive-aliases").setup()
 ```
 
 </details>
