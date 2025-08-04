@@ -52,7 +52,7 @@ require("fugitive-aliases").setup()
 #### Configuration
 
 This plugin creates aliases for `vim-fugitive` as commands, for example `Ga` command will be an alias to `Git add`.
-You can configure this behavior by enabling and disabling aliases in configuration.
+You can configure this behavior by disabling aliases in configuration that you dont want to enable.
 
 ```lua
 require("fugitive-aliases").setup({
