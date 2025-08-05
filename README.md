@@ -127,6 +127,8 @@ require("fugitive-aliases").setup({
     gl = true,
     gb = true,
     gp = true,
+    gd = true,
+    gP = true,
 })
 ```
 
@@ -159,6 +161,8 @@ is equivalent to:
 | `Gl` | `Git log` | Open the Git log. |
 | `Gb` | `Git blame`| Open Git blame for the current file. |
 | `Gp` | `Git push` | Pushes changes to remote. |
+| `Gd` | `Git diff` | Show the diff of the current file. |
+| `GP` | `Git pull` | Pull changes from remote. |
 
 ## Contributing
 
