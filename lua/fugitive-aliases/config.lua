@@ -6,6 +6,8 @@ local default_config = {
 	gl = true,
 	gb = true,
 	gp = true,
+	gd = true,
+	gP = true,
 }
 
 ---@class FugitiveAliases.Config
@@ -16,6 +18,8 @@ local default_config = {
 ---@field gl? boolean Enable Git log
 ---@field gb? boolean Enable Git blame
 ---@field gp? boolean Enable Git push
+---@field gd? boolean Enable Git diff
+---@field gP? boolean Enable Git pull
 local config = vim.deepcopy(default_config)
 
 local M = {}

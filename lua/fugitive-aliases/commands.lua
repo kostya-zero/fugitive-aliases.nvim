@@ -16,6 +16,8 @@ end
 -- Sets up aliases to vim-fugitive command.
 ---@param config FugitiveAliases.Config: Plugin configuration
 function M.setup(config)
+	-- FIXME: There should be better way to do this.
+
 	if config.ga then
 		M.register("Ga", "Git add", "Git add ")
 	end
@@ -42,6 +44,14 @@ function M.setup(config)
 
 	if config.gp then
 		M.register("Gp", "Git push", "Git push")
+	end
+
+	if config.gd then
+		M.register("Gd", "Git diff", "Git diff")
+	end
+
+	if config.gP then
+		M.register("GP", "Git pull", "Git pull")
 	end
 end
 
