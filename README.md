@@ -13,7 +13,7 @@ Choose your favorite plugins manager.
 {
     "kostya-zero/fugitive-aliases.nvim",
     ---@module "fugitive-aliases"
-    ---@type fugitive-aliases.Config
+    ---@type FugitiveAliases.Config
     opts = {}, -- See Configuration section
     dependencies = {
         "tpope/vim-fugitive"
