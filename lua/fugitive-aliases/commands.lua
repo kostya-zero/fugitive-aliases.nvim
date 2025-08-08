@@ -59,7 +59,7 @@ function M.setup(config)
 	end
 
 	if config.gR then
-		M.register("gR", "Git rebase", "Git rebase")
+		M.register("GR", "Git rebase", "Git rebase")
 	end
 
 	if config.gm then
