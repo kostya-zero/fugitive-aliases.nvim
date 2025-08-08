@@ -12,13 +12,13 @@ Choose your favorite plugins manager.
 ```lua
 {
     "kostya-zero/fugitive-aliases.nvim",
-    ---@module "fugitive-aliases"
-    ---@type FugitiveAliases.Config
-    opts = {}, -- See Configuration section
     dependencies = {
         "tpope/vim-fugitive"
     },
     lazy = false,
+    ---@module "fugitive-aliases"
+    ---@type FugitiveAliases.Config
+    opts = {}, -- See Configuration section
 }
 ```
 
