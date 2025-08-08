@@ -8,6 +8,9 @@ local default_config = {
 	gp = true,
 	gd = true,
 	gP = true,
+	gr = true,
+	gR = true,
+	gm = true,
 }
 
 ---@class FugitiveAliases.Config
@@ -20,8 +23,10 @@ local default_config = {
 ---@field gp? boolean Enable Git push
 ---@field gd? boolean Enable Git diff
 ---@field gP? boolean Enable Git pull
+---@field gr boolean Enable Git reset
+---@field gR boolean Enable Git rebase
+---@field gm boolean Enable Git merge
 local config = vim.deepcopy(default_config)
-
 local M = {}
 
 -- Sets up the plugin configuration.

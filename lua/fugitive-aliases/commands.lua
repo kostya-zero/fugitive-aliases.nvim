@@ -50,8 +50,20 @@ function M.setup(config)
 		M.register("Gd", "Git diff", "Git diff")
 	end
 
-	if config.gP then
+	if config.gd then
 		M.register("GP", "Git pull", "Git pull")
+	end
+
+	if config.gr then
+		M.register("Gr", "Git reset", "Git reset")
+	end
+
+	if config.gR then
+		M.register("gR", "Git rebase", "Git rebase")
+	end
+
+	if config.gm then
+		M.register("Gm", "Git merge", "Git merge")
 	end
 end
 

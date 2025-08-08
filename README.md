@@ -129,6 +129,9 @@ require("fugitive-aliases").setup({
     gp = true,
     gd = true,
     gP = true,
+    gr = true,
+    gR = true,
+    gm = true
 })
 ```
 
@@ -163,6 +166,9 @@ is equivalent to:
 | `Gp` | `Git push` | Pushes changes to remote. |
 | `Gd` | `Git diff` | Show the diff of the current file. |
 | `GP` | `Git pull` | Pull changes from remote. |
+| `GR` | `Git rebase` | Start an interactive rebase. |
+| `Gr` | `Git reset` | Reset the current branch to a specific commit. |
+| `Gm` | `Git merge` | Merge another branch into the current branch. |
 
 ## Contributing
 
