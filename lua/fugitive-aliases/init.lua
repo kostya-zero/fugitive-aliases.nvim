@@ -35,22 +35,16 @@ end
 
 -- Function to create a user command alias for Git commands.
 ---@param alias string The alias name for the command.
----@param args table The arguments to pass to the Git command.
+---@param args string The arguments to pass to the Git command.
 ---@param desc string A description for the command.
 function M.register_alias(alias, args, desc)
 	vim.api.nvim_create_user_command(alias, function(opts)
-		local cmd_args = vim.deepcopy(args)
-		if #opts.fargs > 0 then
-			cmd_args = vim.list_extend(cmd_args, opts.fargs)
-		end
-		vim.cmd({
-			cmd = "Git",
-			args = cmd_args,
-		})
+		vim.cmd(args .. " " .. opts.args)
 	end, {
 		nargs = "*",
 		complete = "file",
 		desc = desc,
+		range = true,
 	})
 end
 
@@ -65,15 +59,18 @@ function M.setup(opts)
 	local config = vim.tbl_deep_extend("force", default_config, opts or {})
 
 	local defs = {
-		{ config.gs, "Gs", { "status" }, "Git status" },
-		{ config.ga, "Ga", { "add" }, "Git add" },
-		{ config.gaa, "Gaa", { "add", "." }, "Git add all" },
-		{ config.gb, "Gb", { "blame" }, "Git blame" },
-		{ config.gc, "Gc", { "commit" }, "Git commit" },
-		{ config.gl, "Gl", { "log" }, "Git log" },
-		{ config.gp, "Gp", { "push" }, "Git push" },
-		{ config.gP, "GP", { "pull" }, "Git pull" },
-		{ config.gd, "Gd", { "diff" }, "Git diff" },
+		{ config.gs, "Gs", "Git status", "Git status" },
+		{ config.ga, "Ga", "Git add", "Git add" },
+		{ config.gaa, "Gaa", "Git add .", "Git add all" },
+		{ config.gb, "Gb", "Git blame", "Git blame" },
+		{ config.gc, "Gc", "Git commit", "Git commit" },
+		{ config.gl, "Gl", "Git log", "Git log" },
+		{ config.gp, "Gp", "Git push", "Git push" },
+		{ config.gP, "GP", "Git pull", "Git pull" },
+		{ config.gd, "Gd", "Git diff", "Git diff" },
+		{ config.gr, "Gr", "Git reset", "Git reset" },
+		{ config.gR, "GR", "Git rebase", "Git rebase" },
+		{ config.gm, "Gm", "Git merge", "Git merge" },
 	}
 
 	for _, def in ipairs(defs) do
